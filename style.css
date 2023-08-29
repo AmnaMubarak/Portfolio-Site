@@ -4,6 +4,10 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+body, h1, h2, p, img {
+    margin: 0;
+    padding: 0;
+  }
 html {
 	font-size: 10px;
 	font-family: 'Montserrat', sans-serif;
@@ -704,8 +708,122 @@ p {
 		margin: 1.5%;
 	}
 }
+#experience {
+    width: 100%;
+  }
+  .experience-img {
+    width: 200%;
+    height: 350px; /* Set a fixed height for the image container */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid red; /* Add a 2px black border to the image */
+    border-radius: 8px; /* Add a slight border radius for a softer look */
+  }
+  /* Flex container for experience items */
+  .all-experience {
+    /* display: flex; */
+    justify-content: space-between; /* Adjust this if you need more space between items */
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+  }
+
+  /* Each achievement item */
+  .experience-item {
+    width: 100%; /* Make each item take up half of the screen */
+    padding: 30px; /* Add some padding around each item */
+  }
+
+  /* Achievement images */
+  .experience-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+ 
+    .experience-img1 {
+    width: 200%;
+    height: 400px; /* Set a fixed height for the image container */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid red; /* Add a 2px black border to the image */
+    border-radius: 8px; /* Add a slight border radius for a softer look */
+    margin-bottom: 10px;
+  
+  }
+
+  /* Achievement info */
+  .experience-info {
+    text-align: center;
+    margin-top: 0px; /* Add some space between the images and the info *//* Add a 2px black border to the text */
+    padding: 20px; /* Add padding to the text container */
+
+  }
+  #achivements {
+    width: 100%;
+  }
+  .achivements-img {
+    width: 200%;
+    height: 350px; /* Set a fixed height for the image container */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid red; /* Add a 2px black border to the image */
+    border-radius: 8px; /* Add a slight border radius for a softer look */
+  }
+  /* Flex container for achievements items */
+  .all-achievements {
+    /* display: flex; */
+    justify-content: space-between; /* Adjust this if you need more space between items */
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
+  }
+
+  /* Each achievement item */
+  .achievements-item {
+    width: 100%; /* Make each item take up half of the screen */
+    padding: 30px; /* Add some padding around each item */
+  }
+
+  /* Achievement images */
+  .achivements-img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+ 
+    .achivements-img1 {
+    width: 200%;
+    height: 400px; /* Set a fixed height for the image container */
+    position: relative;
+    overflow: hidden;
+    border: 2px solid red; /* Add a 2px black border to the image */
+    border-radius: 8px; /* Add a slight border radius for a softer look */
+    margin-bottom: 10px;
+  
+  }
+
+  /* Achievement info */
+  .achivements-info {
+    text-align: center;
+    margin-top: 50px; /* Add some space between the images and the info *//* Add a 2px black border to the text */
+    padding: 30px; /* Add padding to the text container */
+
+  }
+  
+
 /* End  Media Query For Desktop */
 
-/* Achievements Header */
-/* Achievements Header styles (unchanged) */
+/* experience Header */
+/* experience Header styles (unchanged) */
   

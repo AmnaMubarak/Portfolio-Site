@@ -6,70 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body, h1, h2, p, img {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Ensure the achievements section takes up the whole width */
-  #achivements {
-    width: 100%;
-  }
-  .achivements-img {
-    width: 200%;
-    height: 350px; /* Set a fixed height for the image container */
-    position: relative;
-    overflow: hidden;
-    border: 2px solid red; /* Add a 2px black border to the image */
-    border-radius: 8px; /* Add a slight border radius for a softer look */
-  }
-  /* Flex container for achievements items */
-  .all-achievements {
-    /* display: flex; */
-    justify-content: space-between; /* Adjust this if you need more space between items */
-    align-items: center;
-    flex-wrap: wrap; /* Allow items to wrap to the next line if necessary */
-  }
-
-  /* Each achievement item */
-  .achievements-item {
-    width: 100%; /* Make each item take up half of the screen */
-    padding: 30px; /* Add some padding around each item */
-  }
-
-  /* Achievement images */
-  .achivements-img img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover; /* Maintain aspect ratio while covering the container */
-    opacity: 1;
-    transition: opacity 0.5s ease;
-  }
- 
-    .achivements-img1 {
-    width: 200%;
-    height: 400px; /* Set a fixed height for the image container */
-    position: relative;
-    overflow: hidden;
-    border: 2px solid red; /* Add a 2px black border to the image */
-    border-radius: 8px; /* Add a slight border radius for a softer look */
-    margin-bottom: 10px;
-  
-  }
-
-  /* Achievement info */
-  .achivements-info {
-    text-align: center;
-    margin-top: 50px; /* Add some space between the images and the info *//* Add a 2px black border to the text */
-    padding: 30px; /* Add padding to the text container */
-
-  }
-  </style>
   <title>My Website</title>
 </head>
 
@@ -90,6 +26,7 @@
           <ul>
             <li><a href="#about" data-after="About">About</a></li>
             <li><a href="#services" data-after="Service">Services</a></li>
+            <li><a href="#experience" data-after="experience">Experience</a></li>
             <li><a href="#achivements" data-after="achivement">Achivement</a></li>
             <li><a href="#projects" data-after="Projects">Projects</a></li>
             <li><a href="#contact" data-after="Contact">Contact</a></li>
@@ -270,24 +207,73 @@
           </div>
     
 </section>
+<style>
+  h1{
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+   h2 {
+            font-weight: bold;
+            font-size: 14px;
+            text-align: left;
 
+
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        li {
+            font-size: 13px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+</style> 
 <section id="experience">
   <div class="experience-container">
     <div class="experience-header">
       <h1 class="section-title">My <span>Experience</span></h1>
     </div>
-    <div class="all-achievements">
-      <div class="achievements-item"  style="display: flex;">
-        <div class="achivements-img">
-          <img src="img/presi.jpeg" alt="A1" id="sliderImage">
+    <div class="all-experience" style="display: flex;">
+      <div class="experience-item"  style="display: flex;">
+        <div class="experience-img" style="width: 50%;">
+          <img src="img/lfd3.jpeg" alt="A1" id="sliderImage2">
         </div>
-        <div class="achivements-info">
-          <h2><b>Data Science & Python Development Intern @Love For Data</b></h2>
-          <p>
-            "Victory comes from finding opportunities in problems." -Sun Tzu
+        <div class="experience-info">
+          <h1><b>Data Science & Python Development Intern @Love For Data</b></h1>
+          <h2>Data Analysis & Visualization</h2>
+          <ul>
+              <li>Conducted data cleaning, preprocessing, and analysis using Python libraries.</li>
+              <li>Created impactful visualizations to convey insights effectively.</li>
+          </ul>
+      
+          <h2>Python Development</h2>
+          <ul>
+              <li>Engaged in backend Python coding using Django, honing skills in programming and best practices.</li>
+          </ul>
+      
+          <h2>Collaborative Problem Solving</h2>
+          <ul>
+              <li>Teamed up to solve complex data challenges, contributing innovative solutions and technical support.</li>
+          </ul>
+      
+          <h2>Database Management</h2>
+          <ul>
+              <li>Gained SQL expertise for data retrieval and manipulation tasks.</li>
+          </ul>
     
-            Every time I learn something new in the field of Data, my love for it increases exponentially. The love of data and the dream to spread this knowledge drove me to found the FDSS NUCES Karachi branch Alhamdulillah.
-          </p>
+      
+          <h2>Team Collaboration</h2>
+          <ul>
+              <li>Communicated technical concepts effectively in team meetings, engaging with non-technical stakeholders.</li>
+          </ul>
+      
+          <h2>Agile Workflow</h2>
+          <ul>
+              <li>Adapted to agile work, meeting project milestones with efficient task management.</li>
+          </ul>
+      
         </div>
       </div>
     
@@ -316,6 +302,51 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sliderImage = document.getElementById("sliderImage2");
+    const imageUrls = [
+      "img/lfd3.jpeg",
+      "img/lfd1.jpeg",
+      "img/lfd2.jpeg",
+
+    ];
+
+    let currentIndex = 0;
+
+    function changeImage() {
+      currentIndex = (currentIndex + 1) % imageUrls.length;
+      sliderImage.src = imageUrls[currentIndex];
+    }
+
+    setInterval(changeImage, 800); // Change image every 10 seconds (10,000 milliseconds)
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sliderImage = document.getElementById("sliderImage");
+    const imageUrls = [
+      "img/presi.jpeg",
+      "img/presi0.jpeg",
+      "img/presi3.jpeg",
+
+    
+      // Add more image URLs here as needed
+    ];
+
+    let currentIndex = 0;
+
+    function changeImage() {
+      currentIndex = (currentIndex + 1) % imageUrls.length;
+      sliderImage.src = imageUrls[currentIndex];
+    }
+
+    setInterval(changeImage, 800); // Change image every 10 seconds (10,000 milliseconds)
+  });
+</script>
+
+
   <!-- About Section -->
   <section id="about">
     <div class="about container">
@@ -330,8 +361,7 @@
         <p>As a senior year student at FAST, I possess a diverse range of skills that make me adaptable and well-prepared to work in 
           various domains. With a keen interest in data science and a background in software engineering, I have developed 
           proficiency in multiple areas. My knowledge of the complete SDLC process enables me to collaborate effectively in cross functional teams and quickly adapt to the evolving needs of projects. </p>
-          <a href="{% static 'Amna_Mubarak_FAST.pdf' %}" class="cta" download>Download Resume</a>
-
+          <a href="static/Amna_Mubarak_FAST.pdf" class="cta" download>Download Resume</a>
 
       </div>
     </div>
