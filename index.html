@@ -4,13 +4,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
   <link rel="stylesheet" href="style.css">
   <title>My Website</title>
 </head>
 
 <body>
-  <!-- Header -->
   <section id="header">
     <div class="header container">
       <div class="nav-bar">
@@ -35,6 +35,47 @@
       </div>
     </div>
   </section>
+  
+  <style>
+    /* Initial styling */
+/* Initial styling */
+#header {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hide the header */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: left 0.3s ease;
+}
+
+#header.active {
+  left: 0; /* Display the header when active class is added */
+}
+
+@media (max-width: 768px) {
+  #header {
+    left: -300px; /* Hide the header on smaller screens */
+    width: 300px;
+  }
+  
+  #header.active {
+    left: 0; /* Display the header on smaller screens when active */
+  }
+}
+
+
+  </style>
+   <script>
+const hamburger = document.querySelector('.hamburger');
+const header = document.querySelector('#header');
+
+hamburger.addEventListener('click', () => {
+  header.classList.toggle('active'); // Toggle the active class for the header
+});
+
+
+  </script>
   <!-- End Header -->
 
 
@@ -361,7 +402,7 @@
         <p>As a senior year student at FAST, I possess a diverse range of skills that make me adaptable and well-prepared to work in 
           various domains. With a keen interest in data science and a background in software engineering, I have developed 
           proficiency in multiple areas. My knowledge of the complete SDLC process enables me to collaborate effectively in cross functional teams and quickly adapt to the evolving needs of projects. </p>
-          <a href="static/Amna_Mubarak_FAST.pdf" class="cta" download>Download Resume</a>
+          <a href="static/Amna Mubarak.pdf" class="cta" download>Download Resume</a>
 
       </div>
     </div>
