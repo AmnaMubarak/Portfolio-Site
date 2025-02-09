@@ -746,3 +746,109 @@ p {
 /* experience Header */
 /* experience Header styles (unchanged) */
   
+/* Add these header styles */
+#header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background-color: #000000;
+  padding: 1rem;
+}
+
+.header.container {
+  min-height: auto;
+  padding: 0 2rem;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 1300px;
+  padding: 0 10px;
+}
+
+.nav-list ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-list ul li {
+  margin: 0 15px;
+}
+
+.nav-list ul li a {
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    padding: 20px 0;
+  }
+
+  #header.active .nav-list {
+    display: block;
+  }
+
+  .nav-list ul {
+    flex-direction: column;
+  }
+
+  .nav-list ul li {
+    margin: 10px 0;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+  }
+}
+
+/* Add these heading and list styles */
+h1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  font-size: 13px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+  
