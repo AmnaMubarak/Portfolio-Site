@@ -164,53 +164,76 @@ hamburger.addEventListener('click', () => {
   <!-- End Projects Section -->
 <!-- Projects Section -->
 <section id="achivements">
-  <div class="achivements-container">
-    <div class="achivements-header">
+  <div class="achievements-container">
+    <div class="achievements-header">
       <h1 class="section-title">My <span>Achievements</span></h1>
     </div>
-    <div class="all-achievements">
-      <div class="achievements-item"  style="display: flex;">
-        <div class="achivements-img">
-          <img src="img/presi.jpeg" alt="A1" id="sliderImage">
-        </div>
-        <div class="achivements-info">
-          <h2><b>Founder And President of Fast Data Science Society</b></h2>
-          <p>
-            "Victory comes from finding opportunities in problems." -Sun Tzu
     
-            Every time I learn something new in the field of Data, my love for it increases exponentially. The love of data and the dream to spread this knowledge drove me to found the FDSS NUCES Karachi branch Alhamdulillah.
-          </p>
-        </div>
-      </div>
-      <div class="all-achievements">
-        <div class="achievements-item"  style="display: flex;">
-          <div class="achivements-info">
-            <h2><b>Data Science Competition Head @Developers' Day 2023</b></h2>
-            <p>
-              As the Data Science Competition Head at Developers' Day 2023, My primary responsibility was to oversee and organize the data science competition segment of the event. I played a key role in planning, coordinating, and executing all aspects of the competition, ensuring it runs smoothly and efficiently.
+    <div class="achievements-grid">
+      <!-- FDSS Achievement -->
+      <div class="achievement-item">
+        <div class="achievement-content">
+          <div class="achievement-image">
+            <div class="image-slider">
+              <img src="img/presi.jpeg" alt="FDSS" class="slider-image" data-slider="fdss">
+            </div>
+            <div class="slider-indicators">
+              <span class="indicator active"></span>
+              <span class="indicator"></span>
+              <span class="indicator"></span>
+            </div>
+          </div>
+          <div class="achievement-details">
+            <h2>Founder And President of Fast Data Science Society</h2>
+            <p class="achievement-quote">"Leadership is not about being in charge. It's about taking care of those in your charge." - Simon Sinek</p>
+            <p class="achievement-description">
+              Every time I learn something new in the field of Data, my love for it increases exponentially. 
+              The love of data and the dream to spread this knowledge drove me to found the FDSS NUCES Karachi branch Alhamdulillah.
             </p>
           </div>
-          <div class="achivements-img1">
-            <img src="img/dd1.jpeg" alt="A1" id="sliderImage1">
-          </div>
-          
         </div>
+      </div>
 
-
-        <div class="all-achievements">
-          <div class="achievements-item"  style="display: flex;">
-            <div class="achivements-img">
-              <img src="img/ned.png" alt="A1" id="sliderImage">
-            </div>
-            <div class="achivements-info">
-              <h2><b>Runner Up at Data Science Competition Organized by NED UET</b></h2>
-              <p>
-                Participating in this competition was an incredible experience, and it truly pushed my boundaries in the field of Data Science. The challenging problem statements allowed me to showcase my skills, knowledge, and innovative thinking.
-               
-              </p>
+      <!-- Developer's Day Achievement -->
+      <div class="achievement-item">
+        <div class="achievement-content reverse">
+          <div class="achievement-details">
+            <h2>Data Science Competition Head @Developers' Day 2023</h2>
+            <p class="achievement-quote">"The best way to predict the future is to create it." - Peter Drucker</p>
+            <p class="achievement-description">
+              As the Data Science Competition Head at Developers' Day 2023, my primary responsibility was to oversee and organize 
+              the data science competition segment of the event. I played a key role in planning, coordinating, and executing all 
+              aspects of the competition, ensuring it runs smoothly and efficiently.
+            </p>
+          </div>
+          <div class="achievement-image">
+            <div class="image-slider">
+              <img src="img/dd1.jpeg" alt="Developers Day" id="ddSlider">
             </div>
           </div>
-    
+        </div>
+      </div>
+
+      <!-- NED Competition Achievement -->
+      <div class="achievement-item">
+        <div class="achievement-content">
+          <div class="achievement-image">
+            <div class="image-slider">
+              <img src="img/ned.png" alt="NED Competition" id="nedSlider">
+            </div>
+          </div>
+          <div class="achievement-details">
+            <h2>Runner Up at Data Science Competition Organized by NED UET</h2>
+            <p class="achievement-quote">"Success is not final, failure is not fatal: it is the courage to continue that counts." - Winston Churchill</p>
+            <p class="achievement-description">
+              Participating in this competition was an incredible experience, and it truly pushed my boundaries in the field of 
+              Data Science. The challenging problem statements allowed me to showcase my skills, knowledge, and innovative thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <section id="experience">
   <div class="experience-container">
@@ -355,47 +378,59 @@ hamburger.addEventListener('click', () => {
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sliderImage = document.getElementById("sliderImage");
-    const imageUrls = [
+document.addEventListener("DOMContentLoaded", function() {
+  // Image URLs for each slider
+  const sliderImages = {
+    fdss: [
       "img/presi.jpeg",
       "img/presi0.jpeg",
-      "img/presi3.jpeg",
+      "img/presi3.jpeg"
+    ]
+  };
 
-    
-      // Add more image URLs here as needed
-    ];
-
+  // Function to create slider
+  function createImageSlider(sliderId, images) {
     let currentIndex = 0;
+    const sliderImage = document.querySelector(`[data-slider="${sliderId}"]`);
+    const indicators = sliderImage.parentElement.parentElement.querySelectorAll('.indicator');
 
-    function changeImage() {
-      currentIndex = (currentIndex + 1) % imageUrls.length;
-      sliderImage.src = imageUrls[currentIndex];
+    function updateImage() {
+      // Fade out current image
+      sliderImage.style.opacity = '0';
+      
+      setTimeout(() => {
+        // Update image source
+        sliderImage.src = images[currentIndex];
+        // Fade in new image
+        sliderImage.style.opacity = '1';
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === currentIndex);
+        });
+      }, 200);
     }
 
-    setInterval(changeImage, 800); // Change image every 10 seconds (10,000 milliseconds)
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sliderImage = document.getElementById("sliderImage2");
-    const imageUrls = [
-      "img/lfd3.jpeg",
-      "img/lfd1.jpeg",
-      "img/lfd2.jpeg",
-
-    ];
-
-    let currentIndex = 0;
-
-    function changeImage() {
-      currentIndex = (currentIndex + 1) % imageUrls.length;
-      sliderImage.src = imageUrls[currentIndex];
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateImage();
     }
 
-    setInterval(changeImage, 800); // Change image every 10 seconds (10,000 milliseconds)
-  });
+    // Add click handlers to indicators
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentIndex = index;
+        updateImage();
+      });
+    });
+
+    // Start automatic slideshow
+    setInterval(nextImage, 3000);
+  }
+
+  // Initialize sliders
+  createImageSlider('fdss', sliderImages.fdss);
+});
 </script>
 
 
@@ -479,7 +514,7 @@ hamburger.addEventListener('click', () => {
         </div>
        
       </div>
-      <p>Copyright © 2023 Amna Mubarak. All rights reserved</p>
+      <p>Copyright © 2025 Amna Mubarak. All rights reserved</p>
     </div>
   </section>
   <!-- End Footer -->
