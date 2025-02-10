@@ -122,70 +122,275 @@ p {
   
 /* Hero Section */
 #hero {
-	background-image: url(./img/amna_.jpg);
-	height: auto;
-	width: auto;
-	background-size: cover;
-	background-position: top center;
-	position: relative;
-	z-index: 1;
-}
-#hero::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-color: black;
-	opacity: 0.7;
-	z-index: -1;
-}
-#hero .hero {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 50px;
-	justify-content: flex-start;
-}
-#hero h1 {
-	display: block;
-	width: fit-content;
-	font-size: 4rem;
-	position: relative;
-	color: transparent;
-	animation: text_reveal 0.5s ease forwards;
-	animation-delay: 1s;
-}
-#hero h1:nth-child(1) {
-	animation-delay: 1s;
-}
-#hero h1:nth-child(2) {
-	animation-delay: 2s;
-}
-#hero h1:nth-child(3) {
-	animation: text_reveal_name 0.5s ease forwards;
-	animation-delay: 3s;
-}
-#hero h1 span {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 0;
-	background-color: crimson;
-	animation: text_reveal_box 1s ease;
-	animation-delay: 0.5s;
-}
-#hero h1:nth-child(1) span {
-	animation-delay: 0.5s;
-}
-#hero h1:nth-child(2) span {
-	animation-delay: 1.5s;
-}
-#hero h1:nth-child(3) span {
-	animation-delay: 2.5s;
+  min-height: 100vh;
+  position: relative;
+  background: #f8f9fa;
+  overflow: hidden;
 }
 
+.gradient-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(220,20,60,0.1), rgba(255,105,180,0.1));
+  z-index: 1;
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 50px;
+}
+
+/* Text Content */
+.hero-text {
+  flex: 1;
+}
+
+.greeting {
+  color: #333;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.name {
+  color: #1a1a1a;
+  font-size: 5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards 0.2s;
+}
+
+.role-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards 0.4s;
+}
+
+.role-text {
+  color: #333;
+  font-size: 2.4rem;
+}
+
+.role-titles {
+  height: 40px;
+  overflow: hidden;
+}
+
+.title-wrap {
+  animation: slideUp 8s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+.title {
+  display: block;
+  color: crimson;
+  font-size: 2.4rem;
+  font-weight: 500;
+  height: 40px;
+  line-height: 40px;
+}
+
+.hero-description {
+  color: #666;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards 0.6s;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards 0.8s;
+}
+
+.modern-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 1.6rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.modern-button svg {
+  transition: transform 0.3s ease;
+}
+
+.modern-button:hover svg {
+  transform: translateX(5px);
+}
+
+.modern-button.primary {
+  background: crimson;
+  color: white;
+  border: none;
+}
+
+.modern-button.primary:hover {
+  background: #b01030;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+}
+
+.modern-button.secondary {
+  background: transparent;
+  color: #333;
+  border: 2px solid crimson;
+}
+
+.modern-button.secondary:hover {
+  background: rgba(220, 20, 60, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Visual Elements */
+.hero-visual {
+  flex: 1;
+  position: relative;
+  height: 500px;
+}
+
+.tech-icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  animation: float 3s ease-in-out infinite;
+  animation-delay: var(--delay);
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+}
+
+.floating-icon:hover {
+  transform: scale(1.2);
+}
+
+.floating-icon:nth-child(1) { top: 20%; left: 15%; }
+.floating-icon:nth-child(2) { top: 50%; left: 25%; }
+.floating-icon:nth-child(3) { top: 30%; left: 45%; }
+.floating-icon:nth-child(4) { top: 60%; left: 55%; }
+.floating-icon:nth-child(5) { top: 25%; left: 70%; }
+.floating-icon:nth-child(6) { top: 45%; left: 80%; }
+.floating-icon:nth-child(7) { top: 65%; left: 85%; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0%, 25% {
+    transform: translateY(0);
+  }
+  33%, 58% {
+    transform: translateY(-40px);
+  }
+  66%, 91% {
+    transform: translateY(-80px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .name {
+    font-size: 4.5rem;
+  }
+
+  .hero-visual {
+    height: 300px;
+    order: -1;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-container {
+    padding: 20px;
+  }
+
+  .name {
+    font-size: 3.5rem;
+  }
+
+  .greeting, .role-text, .title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 1.6rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .cta {
+    width: 100%;
+  }
+}
 /* End Hero Section */
 
 /* Services Section */
