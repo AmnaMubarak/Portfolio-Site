@@ -45,6 +45,7 @@ p {
 	text-transform: uppercase;
 	letter-spacing: 0.2rem;
 	text-align: center;
+	padding-top: 30px;
 }
 .section-title span {
 	color: crimson;
@@ -188,64 +189,170 @@ p {
 /* End Hero Section */
 
 /* Services Section */
-#services .services {
-	flex-direction: column;
-	text-align: center;
-	max-width: 1500px;
-	margin: 0 auto;
-	padding: 100px 0;
+#services {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  margin-top: 50px;
 }
-#services .service-top {
-	max-width: 500px;
-	margin: 0 auto;
+
+.services-heading {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0 30px 0;
+  margin: 0;
 }
-#services .service-bottom {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-top: 50px;
+
+.services-heading h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 0;
 }
-#services .service-item {
-	flex-basis: 80%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	flex-direction: column;
-	padding: 30px;
-	border-radius: 10px;
-	background-image: url(./img/img-1.png);
-	background-size: cover;
-	margin: 10px 5%;
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
+
+.services-heading h1 span {
+  color: crimson;
 }
-#services .service-item::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-	opacity: 0.9;
-	z-index: -1;
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 20px 20px 20px;
+  margin: 0;
+  max-width: 1600px;
+  margin: 0 auto;
 }
-#services .service-bottom .icon {
-	height: 80px;
-	width: 80px;
-	margin-bottom: 20px;
+
+.service-card {
+  background: #2c3e50;
+  border-radius: 10px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  min-width: 0;
+  margin: 0;
 }
-#services .service-item h2 {
-	font-size: 2rem;
-	color: white;
-	margin-bottom: 10px;
-	text-transform: uppercase;
+
+.service-content, 
+.service-header, 
+.service-intro, 
+.service-list, 
+.tech-stack {
+  margin: 0;
+  padding: 0;
 }
-#services .service-item p {
-	color: white;
-	text-align: left;
+
+.service-header {
+  margin-bottom: 15px;
+}
+
+.service-intro {
+  margin-bottom: 15px;
+}
+
+.service-list {
+  margin-bottom: 15px;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-right: 12px;
+  background: rgba(220, 20, 60, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid crimson;
+}
+
+.service-content h2 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  letter-spacing: 0.1rem;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+}
+
+.service-list li {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.list-icon {
+  margin-right: 8px;
+  font-size: 1.4rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-stack span {
+  background: rgba(220, 20, 60, 0.1);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  border: 1px solid crimson;
+  transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+  background: crimson;
+  transform: translateY(-2px);
+}
+
+/* Media Queries */
+@media screen and (max-width: 1400px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 15px 15px 15px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-content h2 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .services-heading h1 {
+    font-size: 40px;
+  }
+
+  #services {
+    padding: 15px 0 0px 0;
+  }
+  
+  .services-heading {
+    padding: 15px 0;
+  }
 }
 /* End Services Section */
 
@@ -763,7 +870,7 @@ p {
   /* Achievement info */
   .achivements-info {
     text-align: center;
-    margin-top: 50px; /* Add some space between the images and the info *//* Add a 2px black border to the text */
+    margin-top: 40px; /* Add some space between the images and the info *//* Add a 2px black border to the text */
     padding: 30px; /* Add padding to the text container */
 
   }
@@ -1233,5 +1340,15 @@ html {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+/* Optional: Add a subtle divider under the title */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: crimson;
+  margin: 20px auto 0;
 }
   
