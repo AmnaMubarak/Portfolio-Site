@@ -866,55 +866,43 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .experience-timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background-color: var(--primary-light);
+  display: none;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 40px;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
+  margin-bottom: 30px;
+  width: 100%;
 }
 
 .timeline-dot {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--primary);
-  z-index: 1;
+  display: none;
 }
 
 .timeline-content {
   position: relative;
-  width: 45%;
-  padding: 20px;
+  width: 100%;
+  padding: 25px;
   background-color: var(--background-card);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  transition: var(--transition);
 }
 
-.timeline-item:nth-child(odd) .timeline-content {
-  left: 0;
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
+.timeline-item:nth-child(odd) .timeline-content,
 .timeline-item:nth-child(even) .timeline-content {
-  left: 55%;
+  left: 0;
 }
 
 .timeline-date {
@@ -927,51 +915,44 @@ p {
   margin-bottom: 15px;
 }
 
-.timeline-title {
-  margin-bottom: 10px;
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
 }
 
-.timeline-subtitle {
-  color: var(--text-light);
-  margin-bottom: 15px;
-}
-
-.timeline-description {
-  margin-bottom: 15px;
-}
-
-.achievement-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.achievement-card {
-  padding: 12px;
+.tech-tag {
+  padding: 5px 12px;
   background-color: var(--background-dark);
   border-radius: var(--radius-sm);
+  font-size: 0.85rem;
   transition: var(--transition);
 }
 
-.achievement-card:hover {
-  transform: translateY(-3px);
-  background-color: rgba(93, 95, 239, 0.1);
+.tech-tag:hover {
+  background-color: var(--primary-light);
+  color: var(--text-white);
 }
 
-.achievement-icon {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+@media screen and (max-width: 992px) {
+  .experience-timeline {
+    grid-template-columns: 1fr;
+  }
+  
+  .timeline-content {
+    width: 100%;
+  }
 }
 
-.achievement-title {
-  font-size: 0.9rem;
-}
-
-.achievement-card p {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  margin-bottom: 0;
+@media screen and (max-width: 768px) {
+  .timeline-content {
+    padding: 20px;
+  }
+  
+  .achievement-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Contact Section */
