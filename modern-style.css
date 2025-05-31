@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
+  /* Light mode variables */
   --primary: #5D5FEF;
   --primary-light: #8C8DFF;
   --primary-dark: #4A4CB7;
@@ -22,6 +23,23 @@
   --radius-lg: 16px;
   --transition: all 0.3s ease;
   --header-height: 70px;
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --primary: #8C8DFF;
+  --primary-light: #5D5FEF;
+  --primary-dark: #4A4CB7;
+  --secondary: #A0AEC0;
+  --text-dark: #F7FAFC;
+  --text-light: #CBD5E0;
+  --text-white: #1A202C;
+  --background: #1A202C;
+  --background-dark: #2D3748;
+  --background-card: #2D3748;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.3);
 }
 
 /* Base Reset */
@@ -853,11 +871,52 @@ p {
   margin-bottom: 20px;
 }
 
+.project-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
 .project-link {
-  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--text-white);
+  display: flex;
   align-items: center;
-  gap: 5px;
-  font-weight: 500;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.project-link[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.project-link:hover {
+  transform: scale(1.1);
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+}
+
+.project-link i {
+  transition: var(--transition);
+}
+
+.project-link:hover i {
+  transform: scale(1.1);
 }
 
 /* Experience Timeline */
@@ -893,6 +952,9 @@ p {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-content:hover {
@@ -919,15 +981,16 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 15px;
+  margin-top: auto;
+  padding-top: 15px;
 }
 
 .tech-tag {
   padding: 5px 12px;
-  background-color: var(--background-dark);
+  background-color: rgba(93, 95, 239, 0.1);
+  color: var(--primary);
   border-radius: var(--radius-sm);
   font-size: 0.85rem;
-  transition: var(--transition);
 }
 
 .tech-tag:hover {
@@ -1655,4 +1718,24 @@ p {
   .achievement-card-image {
     height: 200px;
   }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
 } 
